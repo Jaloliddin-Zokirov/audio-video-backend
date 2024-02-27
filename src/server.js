@@ -123,7 +123,7 @@ const uploadAudio = multer({ storage: audioStorage, limits: { fileSize: 10000000
 
 
 app.use(cors({
-  origin: ["http://localhost:3001","https://audiovideo-test.netlify.app","http://localhost:3000", "https://admin-paneltest.netlify.app","https://mq5nyl-3000.csb.app","https://ghqrs5-3000.csb.app"],
+  origin: ["http://localhost:3001","https://audiovideo-test.netlify.app","http://localhost:3000", "https://admin-paneltest.netlify.app","https://mq5nyl-3000.csb.app","https://ghqrs5-3000.csb.app", "https://testerdeveloper.uz"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"] 
 }));
