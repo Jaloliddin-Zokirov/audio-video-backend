@@ -61,13 +61,13 @@ async function sendRegistrationEmail(email, temporaryPassword) {
   let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-          user: 'abduxalilovjavohir393@gmail.com',
+          user: 'jaloliddinzokirov.dev@gmail.com',
           pass: 'vsld zabt lglg fhbw'
       },
   });
   console.log(email);
   let mailOptions = {
-      from: 'abduxalilovjavohir393@gmail.com',
+      from: 'jaloliddinzokirov.dev@gmail.com',
       to: email,
       subject: 'Your Temporary Password for Registration',
       text: `Your temporary password is: ${temporaryPassword}. Please use this password to log in and set your permanent password.`

@@ -5,9 +5,9 @@ const multer = require("multer");
 const path = require("path");
 
 const getAllBlogs = require("./methods/GetAll");
-const getLinkyId = require("./links-methods/GetByid")
-const deleteLinkById = require("./links-methods/delteLink")
-const updateLinkById = require("./links-methods/Update")
+const getLinkyId = require("./links-methods/GetByid");
+const deleteLinkById = require("./links-methods/delteLink");
+const updateLinkById = require("./links-methods/Update");
 const getBlogById = require("./methods/GetById");
 const createBlog = require("./methods/CreateBlog");
 const deleteBlog = require("./methods/Delete");
@@ -20,15 +20,15 @@ const getBlogByIdAudios = require("./methods-for-audio/getBlogByIdAudios");
 const getLogo = require("./logoApi/getLogo");
 const createLogo = require("./logoApi/createLogo");
 const DeleteLogo = require("./logoApi/DeleteLogo");
-const  updateLogo  = require("./logoApi/UpdateLogo");
+const updateLogo = require("./logoApi/UpdateLogo");
 const CreateById = require("./methods-for-audio/CreateById");
 const updateOneAudio = require("./methods-for-audio/updateOneAudio");
 const delteInner = require("./methods-for-audio/DeleteInner");
 const GetInner = require("./methods-for-audio/GetInner");
-const createPhone = require('./phone-number-method/createPhoneNumber');
-const getAll = require("./phone-number-method/GetAllNumber")
-const getPhoneById = require("./phone-number-method/GetByid")
-const updatePhoneById = require("./phone-number-method/Update")
+const createPhone = require("./phone-number-method/createPhoneNumber");
+const getAll = require("./phone-number-method/GetAllNumber");
+const getPhoneById = require("./phone-number-method/GetByid");
+const updatePhoneById = require("./phone-number-method/Update");
 const deletePhoneById = require("./phone-number-method/deletePhone");
 const deleteAllFilesFromUploadsFolder = require("./helpers");
 const updateOneLink = require("./methods-for-audio/UpdataOneLink");
@@ -38,31 +38,30 @@ const UpdateById = require("./methods-for-audio/updateOneAudio");
 const DeleteAudioById = require("./methods-for-audio/UpdateAudio");
 const CreateBlog = require("./methods/CreateBlog");
 const getAdmin = require("./Admin/getAdmin");
-const Admin  = require("./model/admin");
+const Admin = require("./model/admin");
 const delteAdmin = require("./Admin/delteAdmin");
 const login = require("./Admin/login");
-const UpdateAdmin = require("./Admin/update")
-const SendConfirmationNumber = require("./Admin/forgotPadd")
-const confirmConfirmationCode = require("./Admin/Confirm")
-const CreateCusmtomers = require("./Customers/Create")
-const GetCuustomer = require("./Customers/GetCustomers")
+const UpdateAdmin = require("./Admin/update");
+const SendConfirmationNumber = require("./Admin/forgotPadd");
+const confirmConfirmationCode = require("./Admin/Confirm");
+const CreateCusmtomers = require("./Customers/Create");
+const GetCuustomer = require("./Customers/GetCustomers");
 const DeleteCustomer = require("./Customers/DeleteCustomers");
 const loginCustomers = require("./Customers/loginCustomers");
 
-
 const PORT = process.env.PORT || 5001;
-const url = "mongodb+srv://abduxalilovjavohir393:1984god123@cluster0.uifiguj.mongodb.net/?retryWrites=true&w=majority";
+const url =
+  "mongodb+srv://jaloliddinzokirovdev:Shatrapata1908@databasefortest.zo43lgd.mongodb.net/?retryWrites=true&w=majority&appName=databaseForTest";
 // Connect to MongoDB
 const app = express();
-deleteAllFilesFromUploadsFolder()
+deleteAllFilesFromUploadsFolder();
 async function connect() {
   try {
     await mongoose.connect(url, {
       useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 40000, // 30 seconds timeout
-  socketTimeoutMS: 45000,
-      
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 40000, // 30 seconds timeout
+      socketTimeoutMS: 45000,
     });
     console.log("Connected to MongoDB");
   } catch (error) {
@@ -72,8 +71,6 @@ async function connect() {
 }
 
 connect();
-
-
 
 // Multer configurations
 const storage = multer.diskStorage({
@@ -107,26 +104,43 @@ const videoStorage = multer.diskStorage({
   },
 });
 
-
-const uploadVideo = multer({ storage: videoStorage, limits: { fileSize: 100000000 } });
+const uploadVideo = multer({
+  storage: videoStorage,
+  limits: { fileSize: 100000000 },
+});
 const uploadImage = multer({ storage });
 const uploadLogo = multer({ storage: LogoStorage });
-const uploadSmallAudio = multer({ storage: audioStorage, limits: { fileSize: 100000000 }}).fields([
-  { name: 'ru_smallaudio', maxCount: 1 },
-  { name: 'ru_image', maxCount: 1 },
-  { name: 'ru_video', maxCount: 1 },
-])
+const uploadSmallAudio = multer({
+  storage: audioStorage,
+  limits: { fileSize: 100000000 },
+}).fields([
+  { name: "ru_smallaudio", maxCount: 1 },
+  { name: "ru_image", maxCount: 1 },
+  { name: "ru_video", maxCount: 1 },
+]);
 
 app.post("/api/audios", uploadSmallAudio, CreateForAudio);
 
-const uploadAudio = multer({ storage: audioStorage, limits: { fileSize: 100000000 } });
+const uploadAudio = multer({
+  storage: audioStorage,
+  limits: { fileSize: 100000000 },
+});
 
-
-app.use(cors({
-  origin: ["http://localhost:3001","https://audiovideo-test.netlify.app","http://localhost:3000", "https://admin-paneltest.netlify.app","https://mq5nyl-3000.csb.app","https://ghqrs5-3000.csb.app", "https://testerdeveloper.uz"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"] 
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3001",
+      "https://audiovideo-test.netlify.app",
+      "http://localhost:3000",
+      "https://admin-paneltest.netlify.app",
+      "https://mq5nyl-3000.csb.app",
+      "https://ghqrs5-3000.csb.app",
+      "https://testerdeveloper.uz",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 
@@ -142,54 +156,77 @@ const upload = multer();
 app.get("/api/audios", getAllAudio);
 app.get("/api/audios/:id", getBlogByIdAudios);
 app.get("/api/audios/:id/:id2", GetInner);
-app.post("/api/audios/:id", uploadAudio.fields([{ name: 'audio' }]), CreateById);
-app.post("/api/audios", uploadSmallAudio, (req, res, next) => {
-  next();
-}, CreateForAudio);
-app.put("/api/audios/:id", uploadSmallAudio, (req, res, next) => {
-  next();
-}, UpdateAudio);
-app.put("/api/audios/:id/:id2", uploadAudio.fields([{ name: 'audio' }]), UpdateById);
-app.put("/api/audios/:id/:id2/:id3",updateOneLink);
+app.post(
+  "/api/audios/:id",
+  uploadAudio.fields([{ name: "audio" }]),
+  CreateById
+);
+app.post(
+  "/api/audios",
+  uploadSmallAudio,
+  (req, res, next) => {
+    next();
+  },
+  CreateForAudio
+);
+app.put(
+  "/api/audios/:id",
+  uploadSmallAudio,
+  (req, res, next) => {
+    next();
+  },
+  UpdateAudio
+);
+app.put(
+  "/api/audios/:id/:id2",
+  uploadAudio.fields([{ name: "audio" }]),
+  UpdateById
+);
+app.put("/api/audios/:id/:id2/:id3", updateOneLink);
 app.delete("/api/audios/:id", Audiodelete);
 app.delete("/api/audios/:id/:id2", delteInner);
 
 // Logo
 app.get("/api/logo", getLogo);
-app.post("/api/logo", uploadLogo.fields([{ name: 'dark' },{ name: 'light' }]), createLogo);
+app.post(
+  "/api/logo",
+  uploadLogo.fields([{ name: "dark" }, { name: "light" }]),
+  createLogo
+);
 app.delete("/api/logo/:id", DeleteLogo);
-app.put("/api/logo/:id", uploadLogo.fields([{ name: 'dark' },{ name: 'light' }]), updateLogo);
+app.put(
+  "/api/logo/:id",
+  uploadLogo.fields([{ name: "dark" }, { name: "light" }]),
+  updateLogo
+);
 
 // Number
-app.post('/api/phone-number', createPhone);
-app.get('/api/phone-number', getAll);
-app.get('/api/phone-number/:id', getPhoneById);
-app.put('/api/phone-number/:id', updatePhoneById);
-app.delete('/api/phone-number/:id', deletePhoneById);
+app.post("/api/phone-number", createPhone);
+app.get("/api/phone-number", getAll);
+app.get("/api/phone-number/:id", getPhoneById);
+app.put("/api/phone-number/:id", updatePhoneById);
+app.delete("/api/phone-number/:id", deletePhoneById);
 
 // Links
-app.post('/api/links', CreateLink);
-app.get('/api/links', GetAllLinks);
-app.get('/api/links/:id', getLinkyId);
-app.put('/api/links/:id', updateLinkById);
-app.delete('/api/links/:id', deleteLinkById);
+app.post("/api/links", CreateLink);
+app.get("/api/links", GetAllLinks);
+app.get("/api/links/:id", getLinkyId);
+app.put("/api/links/:id", updateLinkById);
+app.delete("/api/links/:id", deleteLinkById);
 
 // Admin
-app.get("/api/admin",getAdmin)
-app.delete("/api/admin/:id",delteAdmin)
-app.post("/api/admin",login)
-app.put("/api/admin/:id",uploadImage.single("image"), UpdateAdmin)
-app.post("/api/admin/confirm",SendConfirmationNumber)
-app.post("/api/admin/confirmation",confirmConfirmationCode)
-
+app.get("/api/admin", getAdmin);
+app.delete("/api/admin/:id", delteAdmin);
+app.post("/api/admin", login);
+app.put("/api/admin/:id", uploadImage.single("image"), UpdateAdmin);
+app.post("/api/admin/confirm", SendConfirmationNumber);
+app.post("/api/admin/confirmation", confirmConfirmationCode);
 
 // Customers
-app.get("/api/customers",GetCuustomer)
-app.delete("/api/customers/:id",DeleteCustomer)
-app.post("/api/customers/",CreateCusmtomers)
-app.post("/api/customers/login",loginCustomers)
-
-
+app.get("/api/customers", GetCuustomer);
+app.delete("/api/customers/:id", DeleteCustomer);
+app.post("/api/customers/", CreateCusmtomers);
+app.post("/api/customers/login", loginCustomers);
 
 // Static file serving
 app.use("/uploads", express.static("uploads"));
@@ -199,7 +236,7 @@ app.use("/audio-uploads", express.static("audio-uploads"));
 // Request logging middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send('Something went wrong!');
+  res.status(500).send("Something went wrong!");
 });
 
 // Start the server
@@ -207,12 +244,10 @@ app.listen(PORT, () => {
   console.log(`Server started on port: ${PORT}`);
 });
 
-// Handle SIGINT signalxop 
-process.on('SIGINT', () => {
+// Handle SIGINT signalxop
+process.on("SIGINT", () => {
   mongoose.connection.close(() => {
-    console.log('MongoDB connection closed.');
+    console.log("MongoDB connection closed.");
     process.exit(0);
   });
 });
-
-
