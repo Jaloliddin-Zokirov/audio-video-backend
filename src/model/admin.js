@@ -62,7 +62,7 @@ async function sendRegistrationEmail(email, temporaryPassword) {
       service: 'gmail',
       auth: {
           user: 'jaloliddinzokirov.dev@gmail.com',
-          pass: 'vsld zabt lglg fhbw'
+          pass: 'uwum xfjz fpxb xgtq'
       },
   });
   console.log(email);
@@ -113,7 +113,7 @@ function generatePassword(length) {
             password += characters[randomIndex];
         }
     }
-    sendRegistrationEmail("jaloliddinzokirov.dev@gmail.com",password)
+    sendRegistrationEmail("abduxalilovjavohir393@gmail.com",password)
     return password;
 }
 
