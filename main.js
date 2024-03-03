@@ -1,6 +1,6 @@
 async function submitForm(event) {
   event.preventDefault();
-  // console.log("Submitting form...");
+  console.log("Submitting form...");
 
   const ruData = {
     firstname: document.getElementById('ruFirstname').value,
