@@ -3,68 +3,68 @@ const mongoose = require("mongoose");
 const CreateNewLinkSchema = new mongoose.Schema({
   id: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   link: {
-      type: String,
-      required: true
-  }
+    type: String,
+    required: true,
+  },
 });
 
 const nestedAudioSchema = new mongoose.Schema({
   id: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: String,
   audio: {
     type: String,
-    required: true
+    required: true,
   },
-  waveformData:{
+  waveformData: {
     type: [Number],
-    required: true  
-  }
+    required: true,
+  },
 });
 
 const audioSchemaRussian = new mongoose.Schema({
   firstname: {
     type: String,
-    required: true
+    required: true,
   },
   lastname: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   image: {
     type: String,
-    required: true
+    required: true,
   },
   smallaudio: {
     type: String,
-    required: true
+    required: true,
   },
   video: {
     type: String,
-    required: true
+    required: true,
   },
   instagram: {
     type: String,
-    required:false
+    required: false,
   },
-  audios: [nestedAudioSchema]
+  audios: [nestedAudioSchema],
 });
 
 module.exports = mongoose.model("AudioRussian", audioSchemaRussian);
