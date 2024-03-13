@@ -13,7 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
-    "@img/sharp-linux-x64": "^0.33.1",
     "aws-sdk": "^2.1530.0",
     "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
