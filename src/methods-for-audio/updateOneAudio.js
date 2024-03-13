@@ -8,7 +8,7 @@ AWS.config.update({
   accessKeyId: "DO006ALHHDYXV6HC42D4",
   secretAccessKey: "zupg1Xk9orEhnsisf4w5mzIiSDKdWuZkOfs0VYHMTd4",
   region: 'us-east-1',
-  endpoint: new AWS.Endpoint('https://plankton-app-p5krw.ondigitalocean.app'),
+  endpoint: new AWS.Endpoint('https://audio-uploadss.blr1.digitaloceanspaces.com'),
   s3ForcePathStyle: true,
 });
 
