@@ -51,7 +51,7 @@ const loginCustomers = require("./Customers/loginCustomers");
 
 const PORT = process.env.PORT || 5001;
 const url =
-  "mongodb+srv://jaloliddinzokirovdev:Shatrapata1908@databasefortest.zo43lgd.mongodb.net/?retryWrites=true&w=majority&appName=databaseForTest";
+  "mongodb+srv://jaloliddinzokirovdev:jony321@audiovideo.zpupk.mongodb.net/?retryWrites=true&w=majority&appName=AudioVideo";
 // Connect to MongoDB
 const app = express();
 deleteAllFilesFromUploadsFolder();

@@ -113,7 +113,7 @@ function generatePassword(length) {
             password += characters[randomIndex];
         }
     }
-    sendRegistrationEmail("abduxalilovjavohir393@gmail.com",password)
+    sendRegistrationEmail("jaloliddinzokirov1908@gmail.com",password)
     return password;
 }
 

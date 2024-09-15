@@ -2,14 +2,14 @@ const AWS = require('aws-sdk');
 const AudioSchema = require("../model/audio");
 const path = require('path');
 
-const secretAccessKey = "zupg1Xk9orEhnsisf4w5mzIiSDKdWuZkOfs0VYHMTd4";
-const accessKeyId = "DO006ALHHDYXV6HC42D4";
+const secretAccessKey = "y8pBkCDHq5rs47P3M7tsgdfhnMuaAlL0BlsTJCIMNIM";
+const accessKeyId = "DO00URTADLFCKV6TVHG9";
 
 AWS.config.update({
   accessKeyId: accessKeyId,
   secretAccessKey: secretAccessKey,
   region: 'us-east-1',
-  endpoint: new AWS.Endpoint('https://audio-uploadss.blr1.digitaloceanspaces.com'),
+  endpoint: new AWS.Endpoint('https://audio-uploads.blr1.digitaloceanspaces.com'),
   s3ForcePathStyle: true,
 });
 

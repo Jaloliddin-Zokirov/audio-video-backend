@@ -9,8 +9,8 @@
         "lastname": "Abduxalilov",
         "description": "dasd",
         "smallaudio": "blr1.digitaloceanspaces.com/audio-app-javohir/audio-uploads/76108b4e-2e2d-4663-baca-1bd95a6184cb.mp3",
-        "image": "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/e4dfdf85-9d36-48bd-93e3-6ac2aa0bf906.png",
-        "video": "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/324a2ff3-c13c-4bd8-a4f1-aba02300f532.mp4",
+        "image": "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/e4dfdf85-9d36-48bd-93e3-6ac2aa0bf906.png",
+        "video": "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/324a2ff3-c13c-4bd8-a4f1-aba02300f532.mp4",
         "instagram": "asdasd",
         "_id": "65a6f270d24f38c5d2245e7b",
         "audios": [
@@ -18,7 +18,7 @@
             "id": "c42b3475-67d6-4bc0-b8e6-f6b88494ba34",
             "title": "xaxaxax",
             "description": "xaxaxaxdescription ru",
-            "audio": "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/a0d55f52-22e7-41f1-ab03-3d79d1608bb9.mp3",
+            "audio": "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/a0d55f52-22e7-41f1-ab03-3d79d1608bb9.mp3",
             "_id": "65a6f38aaecb1a5d78afbb30"
           }
         ]
@@ -29,9 +29,9 @@
         "firstname": "aaaaaa",
         "lastname": "Abduxalilov",
         "description": "dasd",
-        "smallaudio": "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/024f1ca4-72a2-42f8-8f35-e8ec6854cc6e.mp3",
-        "image": "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/6dac6ed2-023e-4609-a1cd-a20882815c81.png",
-        "video": "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/a6babd2d-42bb-48d9-aa89-6770f0ef2774.mp4",
+        "smallaudio": "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/024f1ca4-72a2-42f8-8f35-e8ec6854cc6e.mp3",
+        "image": "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/6dac6ed2-023e-4609-a1cd-a20882815c81.png",
+        "video": "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/a6babd2d-42bb-48d9-aa89-6770f0ef2774.mp4",
         "instagram": "asdasd",
         "_id": "65a6f270d24f38c5d2245e7c",
         "audios": [
@@ -39,7 +39,7 @@
             "id": "c42b3475-67d6-4bc0-b8e6-f6b88494ba34",
             "title": "xaxaxax",
             "description": "xaxaxaxdescription ru",
-            "audio": "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/f74c198c-659e-49a3-8be0-f2f604b4e39e.mp3",
+            "audio": "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/f74c198c-659e-49a3-8be0-f2f604b4e39e.mp3",
             "_id": "65a6f38aaecb1a5d78afbb31"
           }
         ]

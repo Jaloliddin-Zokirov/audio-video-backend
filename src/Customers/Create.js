@@ -9,14 +9,14 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 
 // AWS Configuration
-const secretAccessKey = "zupg1Xk9orEhnsisf4w5mzIiSDKdWuZkOfs0VYHMTd4";
-const accessKeyId = "DO006ALHHDYXV6HC42D4";
+const secretAccessKey = "y8pBkCDHq5rs47P3M7tsgdfhnMuaAlL0BlsTJCIMNIM";
+const accessKeyId = "DO00URTADLFCKV6TVHG9";
 
 AWS.config.update({
   accessKeyId: accessKeyId,
   secretAccessKey: secretAccessKey,
   region: 'us-east-1',
-  endpoint: new AWS.Endpoint('https://audio-uploadss.blr1.digitaloceanspaces.com'),
+  endpoint: new AWS.Endpoint('https://audio-uploads.blr1.digitaloceanspaces.com'),
   s3ForcePathStyle: true,
 });
 
@@ -90,13 +90,13 @@ async function sendRegistrationEmail(email, temporaryPassword,username) {
   let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-          user: 'abduxalilovjavohir393@gmail.com',
+          user: 'jaloliddinzokirov.dev@gmail.com',
           pass: 'vsld zabt lglg fhbw'
       },
   });
   console.log(email);
   let mailOptions = {
-      from: 'abduxalilovjavohir393@gmail.com',
+      from: 'jaloliddinzokirov.dev@gmail.com',
       to: email,
       subject: 'Your Temporary Password for Registration',
       text: `Your username:${username}, password is: ${temporaryPassword}. Please use this password to log in and set your permanent password.`

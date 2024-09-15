@@ -2,8 +2,8 @@ const AWS = require('aws-sdk');
 const path = require('path');
 const Main = require("../model/audio");
 
-const secretAccessKey = "zupg1Xk9orEhnsisf4w5mzIiSDKdWuZkOfs0VYHMTd4";
-const accessKeyId = "DO006ALHHDYXV6HC42D4";
+const secretAccessKey = "y8pBkCDHq5rs47P3M7tsgdfhnMuaAlL0BlsTJCIMNIM";
+const accessKeyId = "DO00URTADLFCKV6TVHG9";
 
 AWS.config.update({
   accessKeyId: accessKeyId,

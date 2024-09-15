@@ -21,14 +21,14 @@ const getById = async (req, res) => {
         firstname: languageData.firstname,
         lastname: languageData.lastname,
         description: languageData.description,
-        smallaudio: "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/" + extractFileName(languageData.smallaudio),
-        image: "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/" + extractFileName(languageData.image),
-        video: "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/" + extractFileName(languageData.video),
+        smallaudio: "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/" + extractFileName(languageData.smallaudio),
+        image: "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/" + extractFileName(languageData.image),
+        video: "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/" + extractFileName(languageData.video),
         instagram: languageData.instagram,
         audios: languageData.audios.map(item => ({
           id: item.id,
           title: item.title,
-          audio: "https://audio-uploadss.blr1.digitaloceanspaces.com/audio-uploads/" + extractFileName(item.audio),
+          audio: "https://audio-uploads.blr1.digitaloceanspaces.com/audio-uploads/" + extractFileName(item.audio),
           description: item.description,
         })),
       };

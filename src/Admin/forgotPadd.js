@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'abduxalilovjavohir393@gmail.com',
+        user: 'jaloliddinzokirov.dev@gmail.com',
         pass: 'vsld zabt lglg fhbw'
     }
 });
@@ -22,7 +22,7 @@ module.exports = async function SendConfirmationNumber(req, res) {
         const confirmationNumber = Math.floor(100000 + Math.random() * 900000);
 
         await transporter.sendMail({
-            from: 'abduxalilovjavohir393@gmail.com',
+            from: 'jaloliddinzokirov.dev@gmail.com',
             to: adminEmail,
             subject: 'Confirmation Number',
             text: `Your confirmation number is: ${confirmationNumber}`
