@@ -133,6 +133,7 @@ app.use(
       "http://localhost:3001",
       "https://audiovideo-test.netlify.app",
       "https://admin-paneltest.netlify.app",
+      "https://testerdeveloper.uz",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
