@@ -41,17 +41,21 @@ const delteInner = async (req, res) => {
       return res.status(404).json({ error: 'Main Audio document not found.' });
     }
 
-    // Find the index of the audio entry in both languages
-    const ruIndex = mainAudio.ru.audios.findIndex(audio => audio.id === id2);
-    const uzIndex = mainAudio.uz.audios.findIndex(audio => audio.id === id2);
+    // Find the audio entry in both languages
+    const ruAudio = mainAudio.ru.audios.find(audio => audio.id === id2);
+    const uzAudio = mainAudio.uz.audios.find(audio => audio.id === id2);
 
-    if (ruIndex === -1 || uzIndex === -1) {
+    if (!ruAudio && !uzAudio) {
       return res.status(404).json({ error: 'Audio entry not found.' });
     }
 
+    // Delete from S3 if URL is found
+    if (ruAudio?.url) await deleteFromS3(ruAudio.url);
+    if (uzAudio?.url) await deleteFromS3(uzAudio.url);
+
     // Remove the audio entry from both languages
-    mainAudio.ru.audios.splice(ruIndex, 1);
-    mainAudio.uz.audios.splice(uzIndex, 1);
+    mainAudio.ru.audios = mainAudio.ru.audios.filter(audio => audio.id !== id2);
+    mainAudio.uz.audios = mainAudio.uz.audios.filter(audio => audio.id !== id2);
 
     const updatedMainAudio = await mainAudio.save();
 
@@ -67,5 +71,3 @@ const delteInner = async (req, res) => {
 };
 
 module.exports = delteInner;
-
-
