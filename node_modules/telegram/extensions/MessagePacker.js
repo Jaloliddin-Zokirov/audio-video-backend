@@ -61,7 +61,7 @@ class MessagePacker {
             this._pendingStates.push(state);
             state
                 .promise // Using finally causes triggering `unhandledrejection` event
-                .catch(() => { })
+                .catch((err) => { })
                 .finally(() => {
                 this._pendingStates = this._pendingStates.filter((s) => s !== state);
             });

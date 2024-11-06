@@ -39,7 +39,7 @@ class MarkdownParser {
                     foundIndex - tempEntities[foundDelim].offset;
                 entities.push(tempEntities[foundDelim]);
             }
-            message = message.replace(foundDelim, "");
+            message = message.toString().replace(foundDelim, "");
             i = foundIndex;
         }
         return [message, entities];

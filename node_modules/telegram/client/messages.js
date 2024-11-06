@@ -786,7 +786,7 @@ async function getCommentData(client, entity, message) {
         peer: entity,
         msgId: __1.utils.getMessageId(message),
     }));
-    const relevantMessage = result.messages[0];
+    const relevantMessage = result.messages.reduce((p, c) => (p && p.id < c.id ? p : c));
     let chat;
     for (const c of result.chats) {
         if (relevantMessage.peerId instanceof tl_1.Api.PeerChannel &&

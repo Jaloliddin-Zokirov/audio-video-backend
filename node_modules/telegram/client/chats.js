@@ -3,13 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getParticipants = exports.iterParticipants = exports._ParticipantsIter = void 0;
+exports.kickParticipant = exports.getParticipants = exports.iterParticipants = exports._ParticipantsIter = void 0;
 const Helpers_1 = require("../Helpers");
 const requestIter_1 = require("../requestIter");
 const __1 = require("../");
 const tl_1 = require("../tl");
 const big_integer_1 = __importDefault(require("big-integer"));
 const inspect_1 = require("../inspect");
+const Utils_1 = require("../Utils");
 const _MAX_PARTICIPANTS_CHUNK_SIZE = 200;
 const _MAX_ADMIN_LOG_CHUNK_SIZE = 100;
 const _MAX_PROFILE_PHOTO_CHUNK_SIZE = 100;
@@ -302,3 +303,48 @@ async function getParticipants(client, entity, params) {
     return (await it.collect());
 }
 exports.getParticipants = getParticipants;
+/** @hidden */
+async function kickParticipant(client, entity, participant) {
+    const peer = await client.getInputEntity(entity);
+    const user = await client.getInputEntity(participant);
+    let resp;
+    let request;
+    const type = __1.helpers._entityType(peer);
+    if (type === __1.helpers._EntityType.CHAT) {
+        request = new tl_1.Api.messages.DeleteChatUser({
+            chatId: (0, Helpers_1.returnBigInt)((0, Utils_1.getPeerId)(entity)),
+            userId: (0, Helpers_1.returnBigInt)((0, Utils_1.getPeerId)(participant)),
+        });
+        resp = await client.invoke(request);
+    }
+    else if (type === __1.helpers._EntityType.CHANNEL) {
+        if (user instanceof tl_1.Api.InputPeerSelf) {
+            request = new tl_1.Api.channels.LeaveChannel({
+                channel: peer,
+            });
+            resp = await client.invoke(request);
+        }
+        else {
+            request = new tl_1.Api.channels.EditBanned({
+                channel: peer,
+                participant: user,
+                bannedRights: new tl_1.Api.ChatBannedRights({
+                    untilDate: 0,
+                    viewMessages: true,
+                }),
+            });
+            resp = await client.invoke(request);
+            await (0, Helpers_1.sleep)(500);
+            await client.invoke(new tl_1.Api.channels.EditBanned({
+                channel: peer,
+                participant: user,
+                bannedRights: new tl_1.Api.ChatBannedRights({ untilDate: 0 }),
+            }));
+        }
+    }
+    else {
+        throw new Error("You must pass either a channel or a chat");
+    }
+    return client._getResponseMessage(request, resp, entity);
+}
+exports.kickParticipant = kickParticipant;

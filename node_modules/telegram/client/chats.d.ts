@@ -41,4 +41,6 @@ export interface IterParticipantsParams {
 export declare function iterParticipants(client: TelegramClient, entity: EntityLike, { limit, offset, search, filter, showTotal }: IterParticipantsParams): _ParticipantsIter;
 /** @hidden */
 export declare function getParticipants(client: TelegramClient, entity: EntityLike, params: IterParticipantsParams): Promise<TotalList<Api.User>>;
+/** @hidden */
+export declare function kickParticipant(client: TelegramClient, entity: EntityLike, participant: EntityLike): Promise<Api.TypeMessage | Map<number, Api.Message> | (Api.Message | undefined)[] | undefined>;
 export {};

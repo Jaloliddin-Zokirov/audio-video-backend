@@ -127,7 +127,7 @@ class MessageButton {
                 throw new Error("cannot click on phone buttons unless sharePhone=true");
             }
             if (sharePhone == true || typeof sharePhone == "string") {
-                const me = (await this._client.getMe());
+                const me = await this._client.getMe();
                 sharePhone = new api_1.Api.InputMediaContact({
                     phoneNumber: (sharePhone == true ? me.phone : sharePhone) || "",
                     firstName: me.firstName || "",

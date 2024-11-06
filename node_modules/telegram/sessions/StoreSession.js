@@ -10,6 +10,9 @@ const AuthKey_1 = require("../crypto/AuthKey");
 class StoreSession extends Memory_1.MemorySession {
     constructor(sessionName, divider = ":") {
         super();
+        if (sessionName === "session") {
+            throw new Error("Session name can't be 'session'. Please use a different name.");
+        }
         if (typeof localStorage === "undefined" || localStorage === null) {
             const LocalStorage = require("./localStorage").LocalStorage;
             this.store = store2_1.default.area(sessionName, new LocalStorage("./" + sessionName));

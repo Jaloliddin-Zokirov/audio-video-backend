@@ -30,6 +30,7 @@ class Forward extends senderGetter_1.SenderGetter {
         }
         chatGetter_1.ChatGetter.initChatClass(this, {
             chatPeer: peer,
+            chat: chat,
             inputChat: inputChat,
         });
         senderGetter_1.SenderGetter.initSenderClass(this, {

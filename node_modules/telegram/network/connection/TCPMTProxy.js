@@ -95,7 +95,7 @@ class TCPMTProxy extends Connection_1.ObfuscatedConnection {
             testServers: testServers,
         });
         this.ObfuscatedIO = MTProxyIO;
-        if (!proxy.MTProxy) {
+        if (!("MTProxy" in proxy)) {
             throw new Error("This connection only supports MPTProxies");
         }
         if (!proxy.secret) {

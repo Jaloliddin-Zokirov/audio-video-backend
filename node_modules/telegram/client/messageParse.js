@@ -154,13 +154,13 @@ function _getResponseMessage(client, request, result, inputChat) {
         if (schedMessage) {
             return schedMessage;
         }
-        client._log.warn(`No randomId in ${request} to map to. returning undefined for ${result}`);
+        client._log.warn(`No randomId in ${request} to map to. returning undefined for ${result} (Message was empty)`);
         return undefined;
     }
     if (!(0, Helpers_1.isArrayLike)(randomId)) {
         let msg = idToMessage.get(randomToId.get(randomId.toString()));
         if (!msg) {
-            client._log.warn(`Request ${request.className} had missing message mapping ${result.className}`);
+            client._log.warn(`Request ${request.className} had missing message mapping ${result.className} (Message was empty)`);
         }
         return msg;
     }
@@ -180,7 +180,7 @@ function _getResponseMessage(client, request, result, inputChat) {
         final.push(tmp2);
     }
     if (warned) {
-        client._log.warn(`Request ${request.className} had missing message mapping ${result.className}`);
+        client._log.warn(`Request ${request.className} had missing message mapping ${result.className} (Message was empty)`);
     }
     const finalToReturn = [];
     for (const rnd of randomId) {

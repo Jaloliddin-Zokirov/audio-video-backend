@@ -13,7 +13,7 @@ class MarkdownV2Parser {
         // italic
         message = message.replace(/-(.*?)-/g, "<i>$1</i>");
         // pre
-        message = message.replace(/```(.*?)```/g, "<pre>$1</pre>");
+        message = message.replace(/```([\s\S]*?)```/g, "<pre>$1</pre>");
         // code
         message = message.replace(/`(.*?)`/g, "<code>$1</code>");
         // Spoiler
@@ -22,6 +22,7 @@ class MarkdownV2Parser {
         message = message.replace(/(?<!\!)\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
         // Emoji
         message = message.replace(/!\[([^\]]+)\]\(tg:\/\/emoji\?id=(\d+)\)/g, '<tg-emoji emoji-id="$2">$1</tg-emoji>');
+        //
         return html_1.HTMLParser.parse(message);
     }
     static unparse(text, entities) {

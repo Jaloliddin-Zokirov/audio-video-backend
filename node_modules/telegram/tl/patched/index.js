@@ -72,5 +72,6 @@ function patchClass(clazz) {
 function patchAll() {
     patchClass(api_1.Api.Message);
     patchClass(api_1.Api.MessageService);
+    patchClass(api_1.Api.MessageEmpty);
 }
 exports.patchAll = patchAll;

@@ -3,7 +3,7 @@ import type { MTProtoState } from "../network/MTProtoState";
 import type { RequestState } from "../network/RequestState";
 export declare class MessagePacker {
     private _state;
-    private _pendingStates;
+    _pendingStates: RequestState[];
     private _queue;
     private _ready;
     private setReady;

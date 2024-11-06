@@ -139,7 +139,7 @@ ${indent}}`.trim();
     }
     function renderValueType(type, isVector, isTlType) {
         if (WEIRD_TYPES.has(type)) {
-            return type;
+            return isVector ? `${type}[]` : type;
         }
         let resType;
         if (typeof type === "string" && isTlType) {

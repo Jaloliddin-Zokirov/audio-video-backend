@@ -6,7 +6,7 @@ import { MTProtoSender } from "../network";
 /** @hidden */
 export declare function invoke<R extends Api.AnyRequest>(client: TelegramClient, request: R, dcId?: number, otherSender?: MTProtoSender): Promise<R["__response"]>;
 /** @hidden */
-export declare function getMe(client: TelegramClient, inputPeer?: boolean): Promise<Api.InputPeerUser | Api.User>;
+export declare function getMe<T extends boolean, R = T extends true ? Api.InputPeerUser : Api.User>(client: TelegramClient, inputPeer: T): Promise<R>;
 /** @hidden */
 export declare function isBot(client: TelegramClient): Promise<boolean | undefined>;
 /** @hidden */
