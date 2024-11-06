@@ -10,14 +10,14 @@ const { v4: uuidv4 } = require('uuid');
 const { exec } = require('child_process');
 
 // AWS Configuration
-const secretAccessKey = "y8pBkCDHq5rs47P3M7tsgdfhnMuaAlL0BlsTJCIMNIM";
-const accessKeyId = "DO00URTADLFCKV6TVHG9";
+const secretAccessKey = "lcCMrr+wJ/hNkbtmyn5CQcVYvqpeh6q9gkpqU1bh0Vo";
+const accessKeyId = "DO00DTYD3ETPCDU3EYYJ";
 
 AWS.config.update({
   accessKeyId: accessKeyId,
   secretAccessKey: secretAccessKey,
   region: 'us-east-1',
-  endpoint: new AWS.Endpoint('https://audio-uploads.blr1.digitaloceanspaces.com'),
+  endpoint: new AWS.Endpoint('https://audio-upload.nyc3.digitaloceanspaces.com'),
   s3ForcePathStyle: true,
 });
 
