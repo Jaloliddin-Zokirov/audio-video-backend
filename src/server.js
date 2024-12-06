@@ -133,8 +133,8 @@ app.use(
       "http://localhost:3001",
       "https://audiovideo-test.netlify.app",
       "https://admin-paneltest.netlify.app",
-      "https://testerdeveloper.uz",
-      "www.https://testerdeveloper.uz",
+      "https://audiovideo.uz",
+      "www.https://audiovideo.uz",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -144,6 +144,8 @@ app.use(
 app.use(express.json());
 
 // Routes
+
+// Hero
 app.get("/api/hero", getAllBlogs);
 app.get("/api/hero/:id", getBlogById);
 app.post("/api/hero", uploadImage.single("image"), CreateBlog);
@@ -152,6 +154,7 @@ app.put("/api/hero/:id", uploadImage.single("image"), updateBlog);
 
 const upload = multer();
 
+// Users
 app.get("/api/audios", getAllAudio);
 app.get("/api/audios/:id", getBlogByIdAudios);
 app.get("/api/audios/:id/:id2", GetInner);
