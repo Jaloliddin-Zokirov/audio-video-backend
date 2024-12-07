@@ -58,35 +58,32 @@ const CreateById = async (req, res) => {
       return res.status(400).json({ error: 'No audio files provided.' });
     }
 
-    const audioId = uuidv4(); // Generate a unique ID for each audio entry
+    const audioId = uuidv4(); // Generate a unique ID for the audio entry
 
-    const ruAudios = audioFiles.map(async (audio) => {
-      const audioURL = await uploadToS3(audio, 'mp3');
-      return {
-        _id: id,
-        id: audioId,
-        
-        title: ruData.title,
-        description: ruData.description,
-        audio: audioURL,
-      };
-    });
-    
-    const uzAudios = audioFiles.map(async (audio) => {
-      const audioURL = await uploadToS3(audio, 'mp3');
-      return {
-        _id: id,
-        id: audioId,
-        title: uzData.title,
-        description: uzData.description,
-        audio: audioURL,
-      };
-    });
-    
-    const [ruAudioEntries, uzAudioEntries] = await Promise.all([
-      Promise.all(ruAudios),
-      Promise.all(uzAudios),
-    ]);
+    // Fayllarni bir marta yuklab, URLni ikkala massiv uchun ishlatamiz
+    const uploadedAudios = await Promise.all(
+      audioFiles.map(async (audio) => {
+        const audioURL = await uploadToS3(audio);
+        return audioURL;
+      })
+    );
+
+    // Ikkala til uchun URLdan foydalanib obyektlarni hosil qilamiz
+    const ruAudioEntries = uploadedAudios.map((audioURL) => ({
+      _id: id,
+      id: audioId,
+      title: ruData.title,
+      description: ruData.description,
+      audio: audioURL,
+    }));
+
+    const uzAudioEntries = uploadedAudios.map((audioURL) => ({
+      _id: id,
+      id: audioId,
+      title: uzData.title,
+      description: uzData.description,
+      audio: audioURL,
+    }));
 
     mainAudio.ru.audios.push(...ruAudioEntries);
     mainAudio.uz.audios.push(...uzAudioEntries);
