@@ -129,9 +129,9 @@ const uploadAudio = multer({
 app.use(
   cors({
     origin: [
+      "http://localhost:5001",
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://audiovideo-test.netlify.app",
       "https://admin-paneltest.netlify.app",
       "https://audiovideo.uz",
       "www.https://audiovideo.uz",
