@@ -132,7 +132,7 @@ app.use(
       "http://localhost:5001",
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://admin-paneltest.netlify.app",
+      "https://qkwzdam-audiovideo-adminpanel-wxbsgbw.netlify.app",
       "https://audiovideo.uz",
       "www.https://audiovideo.uz",
     ],
