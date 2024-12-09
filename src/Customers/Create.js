@@ -48,7 +48,8 @@ module.exports = CreateCusmtomers = async (req, res) => {
         } else {
             try {
                 const updateFields = req.body;  
-
+                console.log(updateFields.email.split("@"), "51 qator");
+                
                 const CustomerBlog = new Customer({
                   id: uuidv4(),
                     email: updateFields.email,
@@ -85,25 +86,25 @@ function generatePassword(length,email,username) {
   return password;
 }
 
-async function sendRegistrationEmail(email, temporaryPassword,username) {
-  try {
-  let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-          user: 'jaloliddinzokirov.dev@gmail.com',
-          pass: 'vsld zabt lglg fhbw'
-      },
-  });
-  console.log(email);
-  let mailOptions = {
-      from: 'jaloliddinzokirov.dev@gmail.com',
-      to: email,
-      subject: 'Your Temporary Password for Registration',
-      text: `Your username:${username}, password is: ${temporaryPassword}. Please use this password to log in and set your permanent password.`
-  };
-  await transporter.sendMail(mailOptions);
-  console.log('Email sent successfully to:', email);
-} catch (error) {
-  console.error('Error sending email:', error);
-}
-}
+// async function sendRegistrationEmail(email, temporaryPassword,username) {
+//   try {
+//   let transporter = nodemailer.createTransport({
+//       service: 'gmail',
+//       auth: {
+//           user: 'jaloliddinzokirov.dev@gmail.com',
+//           pass: 'qkwz qdam wxbs gbwl'
+//       },
+//   });
+//   console.log(username);
+//   let mailOptions = {
+//     from: 'jaloliddinzokirov.dev@gmail.com',
+//     to: email,
+//     subject: 'Your Temporary Password for Registration',
+//     text: `Hello ${username}.\n\nYour temporary password is: ${temporaryPassword}.\n\nPlease use this password to log in and set your permanent password.\n\nThank you!`
+// };
+//   await transporter.sendMail(mailOptions);
+//   console.log('Email sent successfully to:', email);
+// } catch (error) {
+//   console.error('Error sending email:', error);
+// }
+// }

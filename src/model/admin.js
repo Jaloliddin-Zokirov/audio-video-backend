@@ -62,15 +62,15 @@ async function sendRegistrationEmail(email, temporaryPassword) {
       service: 'gmail',
       auth: {
           user: 'jaloliddinzokirov.dev@gmail.com',
-          pass: 'uwum xfjz fpxb xgtq'
+          pass: 'qkwz qdam wxbs gbwl'
       },
   });
-  console.log(email);
+  
   let mailOptions = {
       from: 'jaloliddinzokirov.dev@gmail.com',
       to: email,
       subject: 'Your Temporary Password for Registration',
-      text: `Your temporary password is: ${temporaryPassword}. Please use this password to log in and set your permanent password.`
+      text: `Your username is: ${AdminSchema.obj.username.default}.\n\nYour temporary password is: ${temporaryPassword}.\n\nPlease do not give your password to anyone.\n\nThank you!`
   };
   await transporter.sendMail(mailOptions);
   console.log('Email sent successfully to:', email);
@@ -92,7 +92,7 @@ Admin.countDocuments({})
     })
     .then(savedAdmin => {
         if (savedAdmin) {
-            console.log('Admin created successfully:', savedAdmin);
+            console.log('Admin created successfully');
         }
     })
     .catch(error => {
